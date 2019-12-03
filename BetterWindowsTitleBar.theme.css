@@ -30,6 +30,10 @@
     -webkit-app-region: drag;
 }
 
+.da-title span[role=button],a {
+  -webkit-app-region: no-drag;
+}
+
 /* Moves the toolbar away from the controls to avoid overlap */
 .da-toolbar {
   margin-right: calc(var(--custom-win-button-width) * 3 - 4px);
