@@ -1,35 +1,114 @@
-/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
-/*Remove the member list*/
-@media only screen and (max-width: 1100px) {
-    .da-membersWrap {
-        display: none;
-    }
+/*Autohide the member list on servers when the window isn't very wide*/
+@media only screen and (max-width: 1260px) {
+	.da-membersWrap {
+			width: 15px;
+			right:-112px;
+			min-width: 0;
+			transition: right 0.2s;
+			transition-timing-function: ease-out;
+	}
+	.da-membersWrap:not(:hover) div {
+		background-color: var(--background-secondary);
+	}
+	.da-membersWrap div{
+		transition: opacity 0.25s;
+		opacity: 1;
+	}
+	.da-membersWrap:not(:hover) div div {
+		opacity: 0;
+	}
+	.da-membersWrap:hover {
+			right: 0;
+			width: 240px;
+	}
 }
 
-/*Shrink the channel/DM recipient panel*/
+
+
+/*Autohide the channel/DM recipient panel when the window is somewhat narrow*/
 @media only screen and (max-width: 1000px) {
-    .da-sidebar {
-        width: 155px;
-    }
-    .da-channel {
-        margin: 0;
-        padding: 0;
-    }
-    .da-channel .da-layout{
-        border-radius: 0 4px 4px 0;
-    }
+	.da-content .da-sidebar {
+		width: 15px;
+		transition: width 0.2s;
+		animation-name: slideOutLeft;
+		transition-timing-function: ease-out;
+		box-shadow:  5px 10px #888888 inner;
+	}
+	.da-content .da-sidebar:not(:hover) div:not(:first-child){
+		opacity: 0;
+	}
+	.da-content .da-sidebar .da-searchBar, .da-content .da-sidebar .da-header{
+		-webkit-app-region: no-drag !important;
+		opacity: 1 !important;
+	}
+
+	.da-content .da-sidebar div{
+		transition: opacity 0.25s;
+		opacity: 1;
+	}
+	.da-content .da-sidebar:hover {
+		width: 250px;
+	}
 }
 
-/*Hide the channel/DM recipient panel and server selector*/
-@media only screen and (max-width: 700px) {
-    .da-sidebar {
-        display:none;
-    }
-    .da-guilds {
-        display:none;
-    }
-    .da-base {
-        left:0;
-    }
+/*Autohide the server selector when the window is very narrow*/
+@media only screen and (max-width: 650px) {
+	.da-guilds {
+		position: absolute;
+		z-index: 110; /*100 is NOT enough*/
+		left: -62px;
+		opacity: 0.5;
+		transition: left 0.2s, opacity 0.2s;
+	}
+	.da-guilds:not(:hover) .da-unreadMentionsIndicatorTop, 	.da-guilds:not(:hover) .da-unreadMentionsIndicatorBottom {
+		display: none;
+	}
+	.da-guilds:hover {
+		left: 0;
+		opacity: 1;
+		box-shadow: var(--elevation-high);
+	}
+	.da-base {
+		left:10px;
+	}
+	.da-membersWrap {
+		width: 10px;
+		right:-114.5px;
+	}
+	.da-content .da-sidebar {
+		width: 10px;
+	}
+	/*Compatibility with better title bar theme*/
+	div[role="dialog"] .da-container .da-wrapper .da-scrollerWrap::after {padding-left: 9px !important;-webkit-app-region: no-drag;}
+}
+
+/* Autohide the text input bar when window is very short */
+@media only screen and (max-height: 650px) {
+	.da-channelTextArea {
+		border-top: none;
+	}
+	.da-form {
+		transition: height 0.2s;
+		height: 20px;
+		background-color: var(--background-secondary);
+		border-radius: 10px 10px 0 0;
+		padding: 0 20px;
+		margin: 0 10px;
+	}
+	.da-form:hover, .da-form:focus-within {
+		height: 85px;
+	}
+	.da-cooldownWrapper {
+		margin-right: 13px;
+	}
+	.da-typing {
+		top: -4px;
+	}
+}
+
+/* Let the settings page shrink smaller */
+.da-contentColumn {
+	min-width: 100px;
 }
