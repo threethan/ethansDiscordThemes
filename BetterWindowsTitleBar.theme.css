@@ -1,4 +1,4 @@
-/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0.2", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Variables*/
 :root {
@@ -8,9 +8,8 @@
 
 /*Makes the titlebar 17px tall and invisible. (Kept to add some drag space at the very top of the window)*/
 .da-withFrame {
-    height: 17px;
+    height: 0;
     margin: 0;
-    margin-bottom: -17px;
     background:none;
 }
 
@@ -19,28 +18,37 @@
     top:0;
     width: var(--custom-win-button-width);
     height: var(--custom-win-button-height);
-    -webkit-app-region: no-drag !important;
+    -webkit-app-region: no-drag;
 }
-
-/* Make headers draggable */
-.da-title, .da-headerBar, .da-libraryHeader {
-    -webkit-app-region: drag;
-}
-.da-activityFeed .da-themed:first-child {
-    -webkit-app-region: drag;
-}
-
-.da-title span[role=button],a {
+.da-title a,button {
   -webkit-app-region: no-drag;
 }
+/* Make headers draggable */
+.da-title, .da-headerBar, .da-nicknames{
+    -webkit-app-region: drag;
+}
+.da-container.da-themed {
+  -webkit-app-region: drag;
+  max-width: calc(100% - var(--custom-win-button-width) * 3);
+  padding-right: 3px;;
+}
 
-/* Moves the toolbar away from the controls to avoid overlap */
-.da-toolbar {
-  margin-right: calc(var(--custom-win-button-width) * 3 - 4px);
+.da-container.da-themed span[role=button], .da-container.da-themed div[role=button], .da-libraryFilter {
+   -webkit-app-region: no-drag;
+}
+
+.da-title .da-children:first-child {
+  -webkit-app-region: drag;
+}
+
+
+/* Adds a line to the right of the toolbar */
+.da-toolbar { */
+  margin-right: 0;
   border-right: 1px solid var(--background-modifier-accent);
   padding-right: 8px;
 }
-.da-title .da-children .da-iconWrapper:first-child .da-icon{
+.da-container.da-themed .da-children .da-iconWrapper:first-child .da-icon{
     -webkit-app-region: drag;
 }
 
@@ -82,19 +90,12 @@ div[role="dialog"] .da-container .da-wrapper .da-scrollerWrap::after {
 /* Removes the rounded edge meant to smooth out the old titlebar */
 .platform-win .da-sidebar { border-radius: 0; }
 
-/* Adds interactable space over all the window controls */
-.da-chat::after {
-    content: '';
-    display: block ;
-    position: absolute;
-    height: var(--custom-win-button-height);
-    width: calc(var(--custom-win-button-width) * 3);
-    top: 0;
-    right: 0;
-    -webkit-app-region: no-drag;
-}
-
 .da-notice {
   margin-right: calc(var(--custom-win-button-width) * 3);
   border-radius: 0;
+}
+
+/* Area around server name or DM search bar */
+.da-sidebar .da-container .da-container.da-clickable, .da-sidebar .da-searchBar{
+  -webkit-app-region: drag;
 }
