@@ -1,4 +1,4 @@
-/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/	
+/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Remove the member list*/
 @media only screen and (max-width: 1100px) {
@@ -8,9 +8,9 @@
 }
 
 /*Shrink the channel/DM recipient panel*/
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     .da-sidebar {
-        width: 155px; 
+        width: 155px;
     }
     .da-channel {
         margin: 0;
@@ -22,9 +22,9 @@
 }
 
 /*Hide the channel/DM recipient panel and server selector*/
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 700px) {
     .da-sidebar {
-        display:none; 
+        display:none;
     }
     .da-guilds {
         display:none;
