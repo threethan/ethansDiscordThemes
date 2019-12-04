@@ -27,7 +27,7 @@
 .da-title, .da-headerBar, .da-nicknames{
     -webkit-app-region: drag;
 }
-.da-container.da-themed {
+.da-container.da-themed, .da-container.da-title {
   -webkit-app-region: drag;
   max-width: calc(100% - var(--custom-win-button-width) * 3);
   padding-right: 3px;;
