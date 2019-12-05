@@ -58,7 +58,7 @@
 }
 
 /* Fix for the server list becoming uninteractable, and moves it down */
-.da-guilds .da-scrollerWrap .da-scroller, .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill) .da-scrollerWrap .da-scroller {
+.da-guilds .da-scrollerWrap .da-scroller, .guilds-1SWlCJ .da-scrollerWrap .da-scroller {
     padding-top: 60px;
     -webkit-app-region: no-drag;
 }
@@ -71,7 +71,7 @@
     display: none;
 }
 /* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
-.da-guilds::after, .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill)::after{
+.da-guilds::after, .guilds-1SWlCJ::after{
     display: block;
     position: absolute;
     left:0;
