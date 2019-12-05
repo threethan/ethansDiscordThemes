@@ -1,4 +1,4 @@
-/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.0.1", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Autohide the member list on servers when the window isn't very wide*/
 @media only screen and (max-width: 1260px) {
@@ -55,17 +55,20 @@
 
 /*Autohide the server selector when the window is very narrow*/
 @media only screen and (max-width: 650px) {
-	.da-guilds {
+	/* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
+	.da-guilds, .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill) {
 		position: absolute;
-		z-index: 110; /*100 is NOT enough*/
+		z-index: 1000; /*100 is NOT enough*/
 		left: -62px;
 		opacity: 0.5;
 		transition: left 0.2s, opacity 0.2s;
+		background: red;
 	}
-	.da-guilds:not(:hover) .da-unreadMentionsIndicatorTop, 	.da-guilds:not(:hover) .da-unreadMentionsIndicatorBottom {
+	.da-guilds:not(:hover), .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill):not(:hover) .da-unreadMentionsIndicatorTop,
+	.da-guilds:not(:hover), .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill):not(:hover) .da-unreadMentionsIndicatorBottom {
 		display: none;
 	}
-	.da-guilds:hover {
+	.da-guilds:hover,  .da-app .da-app:only-child .da-layers .da-layer .da-container:only-child .da-wrapper:first-child:not(:only-child):not(.da-pill):hover{
 		left: 0;
 		opacity: 1;
 		box-shadow: var(--elevation-high);
