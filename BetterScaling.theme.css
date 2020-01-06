@@ -1,4 +1,4 @@
-/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.0.1", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.1.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Autohide the member list on servers when the window isn't very wide*/
 @media only screen and (max-width: 1100px) {
@@ -23,32 +23,56 @@
 			right: 0;
 			width: 240px;
 	}
+	/* Hide search bar */
+	.da-toolbar .da-searchBar {
+		width: 150px;
+	}
+	.da-toolbar .da-searchBar:not(:focus-within) {
+		background: none;
+		width: 20px;
+	}
+	.da-toolbar .da-searchBar:not(:focus-within) svg {
+		transform: scale(1.5) !important;
+		color: var(--interactive-normal);
+	}
+	.da-toolbar.da-searchBar svg:hover {
+		color: var(--interactive-hover);
+	}
 }
 
 /*Autohide the channel/DM recipient panel when the window is somewhat narrow*/
 @media only screen and (max-width: 850px) {
 	.da-content .da-sidebar {
-		width: 15px;
-		transition: width 0.2s;
+		/* width: 15px; */
+		margin-right: -225px;
+		transition: margin-right 0.2s;
+		/* transition: width 0.2s; */
 		animation-name: slideOutLeft;
 		transition-timing-function: ease-out;
 		box-shadow:  5px 10px #888888 inner;
 	}
-	.da-content .da-sidebar:not(:hover) div:not(:first-child){
-		opacity: 0;
-	}
 	.da-content .da-sidebar .da-searchBar, .da-content .da-sidebar .da-header{
-		-webkit-app-region: no-drag !important;
-		opacity: 1 !important;
+		-webkit-app-region: no-drag;
 	}
 
-	.da-content .da-sidebar div{
-		transition: opacity 0.25s;
+	.da-content .da-sidebar 						div:not(:first-child), .da-content .da-sidebar .da-searchBarComponent {
 		opacity: 1;
+		transition: opacity 0.2s;
+	}
+	.da-content .da-sidebar:not(:hover) div:not(:first-child), .da-content .da-sidebar:not(:hover) .da-searchBarComponent{
+		opacity: 0;
 	}
 	.da-content .da-sidebar:hover {
-		width: 250px;
+		margin-right: 0;
 	}
+
+	/* Let the settings page shrink smaller */
+	.da-contentColumn, .contentColumn-2hrIYH, .contentColumn {
+		min-width: 200px;
+	}
+	.tools-container { margin-left: -80px; }
+	.esc-text { display: none; }
+	.btn-close { background-color: var(--background-primary); }
 }
 
 /*Autohide the server selector when the window is very narrow*/
@@ -79,10 +103,44 @@
 		right:-114.5px;
 	}
 	.da-content .da-sidebar {
-		width: 10px;
+		margin-right: -230px;
 	}
+
 	/*Compatibility with better title bar theme*/
-	div[role="dialog"] .da-container .da-wrapper .da-scrollerWrap::after {padding-left: 9px !important;-webkit-app-region: no-drag;}
+	.da-guilds::after, .guilds-1SWlCJ::after {padding-left: 9px !important;-webkit-app-region: no-drag;}
+
+		/*Autohide toolbar*/
+		.da-title.da-container .da-toolbar {
+			position: absolute;
+			right: 2px;
+			background: var(--background-secondary);
+			box-shadow: var(--elevation-low);
+			border-radius: 15px;
+			height: 30px;
+			-webkit-app-region: no-drag;
+			padding: 0;
+			border: none;
+			transition: max-width 1s;
+			min-width: 30px;
+			max-width: 400px;
+		}
+		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within) {
+			max-width: 30px;
+			height: 30px;
+		}
+		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within) div {
+			display: none;
+		}
+		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within)::after {
+			content: '';
+			display: block;
+			width: 8px; height: 8px;
+			position: absolute;
+			left: 12px;
+			border: solid var(--interactive-normal);
+			border-width: 0 0 2px 2px;
+			transform: rotate(45deg);
+		}
 }
 
 /* Autohide the text input bar when window is very short */
@@ -107,9 +165,29 @@
 	.da-typing {
 		top: -4px;
 	}
-}
-
-/* Let the settings page shrink smaller */
-.da-contentColumn {
-	min-width: 100px;
+	/* Autohide video/call ui */
+	.da-videoHeight {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		transition: top 0.4s !important;
+	}
+	.da-videoHeight::after {
+		content: '';
+		display: block;
+		position: absolute;
+		left: 0; right: 0; top: 0;
+		bottom: 200px;
+		transition: bottom 1s;
+	}
+	.da-videoHeight:not(:hover)::after {
+		bottom: 17px;
+		background: var(--background-tertiary);
+		z-index: 2;
+	}
+	.da-videoHeight:not(:hover) {
+		z-index: 1;
+		top: -210px;
+	}
 }
