@@ -1,0 +1,109 @@
+/*//META{"name":"Better Titlebar (MacOS)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.0.5M", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+
+/*Makes the titlebar 17px tall and invisible. (Kept to add some drag space at the very top of the window)*/
+.da-withFrame {
+    height: 0;
+    margin: 0;
+    background:none;
+}
+
+/* .da-title a,button {
+  -webkit-app-region: no-drag;
+} */
+/* Make headers draggable */
+.da-title, .da-headerBar, .da-nicknames{
+    -webkit-app-region: drag;
+}
+.da-container.da-themed, .da-container.da-title {
+  -webkit-app-region: drag;
+  max-width: calc(100% - var(--custom-win-button-width) * 3);
+  padding-right: 3px;;
+}
+
+/* .da-container.da-themed span[role=button], .da-container.da-themed div[role=button], .da-libraryFilter {
+   -webkit-app-region: no-drag;
+} */
+
+.da-title .da-children:first-child {
+  -webkit-app-region: drag;
+}
+
+
+/* Adds a line to the right of the toolbar */
+/* .da-toolbar {
+  margin-right: 0;
+  border-right: 1px solid var(--background-modifier-accent);
+  padding-right: 7px;
+} */
+.da-container.da-themed .da-children .da-iconWrapper:first-child .da-icon, .da-container.da-title .da-children .da-iconWrapper:first-child .da-icon {
+    -webkit-app-region: drag;
+}
+.btn-close { -webkit-app-region: no-drag; } /* Fix for the last bit causing the close settings button to be a drag-region */
+
+/* Fix for the search bar becoming uninteractable */
+/* .da-searchBarComponent {
+    -webkit-app-region: no-drag;
+} */
+
+/* Fix for the server list becoming uninteractable, and moves it down */
+.da-guilds .da-scrollerWrap .da-scroller, .guilds-1SWlCJ .da-scrollerWrap .da-scroller {
+    padding-top: 30px;
+    /* -webkit-app-region: no-drag; */
+}
+.da-unreadMentionsIndicatorTop {
+  top: 17px;
+}
+.da-macButtons {
+  height: 48px;
+  width: 72px;
+  -webkit-app-region: drag;
+}
+
+/*Adds a small draggable area on top of server list and moves icons down to avoid overlap*/
+.da-wordmarkWindows {
+    display: none;
+}
+/* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
+.da-guilds::after, .guilds-1SWlCJ::after{
+  display: block;
+  position: fixed;
+  left:0;
+  top:0;
+  height: 32px;
+  width: 63px;
+  background: var(--background-tertiary);
+  -webkit-app-region: drag;
+  box-shadow: var(--elevation-low);
+  display: block;
+  padding-top: 16px;
+  padding-left: 9.5px;
+  content: '';
+ }
+
+/* Removes the rounded edge meant to smooth out the old titlebar */
+.platform-win .da-sidebar { border-radius: 0; }
+
+.da-notice {
+  position: absolute;
+  /* left: 72px; */
+  padding-left: 10px;
+  /* align-self: right; */
+  right: 0; left: 0;
+  margin: 10px;
+  top: 50px;
+  border-radius: 10px;
+  box-shadow: var(--elevation-high);
+}
+
+/* Area around server name or DM search bar */
+.da-sidebar .da-container .da-container.da-clickable, .da-sidebar .da-searchBar{
+  -webkit-app-region: drag;
+}
+
+/* Settings page */
+.da-standardSidebarView{
+  -webkit-app-region: drag;
+}
+.da-standardSidebarView div div div div div{
+  -webkit-app-region: no-drag;
+}
