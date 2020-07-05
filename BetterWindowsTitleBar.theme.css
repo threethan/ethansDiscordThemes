@@ -1,4 +1,4 @@
-/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.1.0", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.1.1", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Variables*/
 :root {
@@ -61,6 +61,8 @@
 }
 
 /* Fix for the server list becoming uninteractable, and moves it down */
+.da-guilds .da-scroller, .guilds-1SWlCJ .da-scroller,
+/* Fallback */
 .da-guilds .da-scrollerWrap .da-scroller, .guilds-1SWlCJ .da-scrollerWrap .da-scroller {
     padding-top: 60px;
     -webkit-app-region: no-drag;
@@ -74,7 +76,7 @@
     display: none;
 }
 /* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
-.da-guilds::after, .guilds-1SWlCJ::after{
+.guilds-1SWlCJ::after{
   display: block;
   position: absolute;
   left:0px;
@@ -127,10 +129,11 @@
 	display: block;
 	color: white;
 
-	padding-left: 15px;
+	padding-left: 25px;
 	font-size: 19pt;
-	font-weight: 600;
+	font-weight: 500;
 	line-height: var(--custom-win-button-height);
+	text-align: center;
 	content: 'Discord Settings';
 	position: absolute;
 	height: var(--custom-win-button-height);
@@ -138,8 +141,8 @@
 	left: 0;
 	right: 0;
 	top: 0;
-	box-shadow:var(--elevation-high);
-	background:var(--background-tertiary);
+	box-shadow:var(--elevation-low);
+	background:var(--background-primary);
 }
 .da-standardSidebarView{
 	-webkit-app-region: no-drag;
