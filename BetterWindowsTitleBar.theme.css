@@ -1,4 +1,4 @@
-/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.1.1", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.2", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Variables*/
 :root {
@@ -112,6 +112,20 @@
 .da-sidebar .da-container .da-container.da-clickable, .da-sidebar .da-searchBar{
   -webkit-app-region: drag;
 }
+/* Boost and expand icons */
+.da-sidebar .da-button {
+  -webkit-app-region: no-drag;
+}
+.da-sidebar .da-clickable.da-selected {
+  -webkit-app-region: no-drag !important;
+}
+.da-guildIconContainer {
+  -webkit-app-region: no-drag;
+}
+/* Close settings button */
+.da-closeButton {
+  -webkit-app-region: no-drag;
+}
 
 /* Settings page custom titlebar thingy */
 .da-standardSidebarView::before{
@@ -147,4 +161,27 @@
 .da-standardSidebarView{
 	-webkit-app-region: no-drag;
 	padding-top: var(--custom-win-button-height);
+}
+
+/* covid video-chat ui update */
+.da-topControls {
+  -webkit-app-region: drag;
+  transform: none !important;
+  opacity: 1 !important;
+  width: calc(100% - 120px);
+  margin-left: -20px;
+  padding-left: 20px;
+  padding-right: 16px;
+}
+.da-topControls .da-icon{
+  -webkit-app-region: drag;
+}
+
+.da-topControls::after {
+  position: absolute;
+  right: 128px;
+  top: 12px;
+  height: 24px;
+  content: '';
+  border-right: 1px solid #FFFFFF22;
 }
