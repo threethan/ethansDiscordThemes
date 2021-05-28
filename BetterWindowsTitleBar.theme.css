@@ -1,20 +1,23 @@
-/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.2", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"1.2.1", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Variables*/
 :root {
     --custom-win-button-height: 48px;
-    --custom-win-button-width:  41px;
+    --custom-win-button-width:  46px;
 }
 
 /*Makes the titlebar 17px tall and invisible. (Kept to add some drag space at the very top of the window)*/
-.da-withFrame {
+.withFrame-haYltI {
     height: 0;
     margin: 0;
     background:none;
 }
-
+/* Fix for the server list becoming uninteractable, and moves it down */
+.scroller-1Bvpku {
+  padding-top: 60px !important;
+}
 /*Resize and style window controls*/
-.da-winButton {
+.winButton-iRh8-Z {
 	position: relative;
 	z-index: 100000;
 	top:0;
@@ -22,57 +25,31 @@
 	height: var(--custom-win-button-height);
 	-webkit-app-region: no-drag;
 }
-.da-title a,button {
-  -webkit-app-region: no-drag;
-}
 /* Make headers draggable */
-.da-title, .da-headerBar, .da-nicknames{
+.title-3qD0b-, .da-headerBar, .da-nicknames{
     -webkit-app-region: drag;
 }
-.da-container.da-themed, .da-container.da-title {
+.themed-ANHk51, .da-container.da-title {
   -webkit-app-region: drag;
   max-width: calc(100% - var(--custom-win-button-width) * 3);
   padding-right: 3px;;
 }
 
-.da-container.da-themed span[role=button], .da-container.da-themed div[role=button], .da-libraryFilter {
+themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFilter {
    -webkit-app-region: no-drag;
 }
 
-.da-title .da-children:first-child {
+/*The icon next to server/DM name*/
+.icon-22AiRD {
   -webkit-app-region: drag;
 }
 
-
-/* Adds a line to the right of the toolbar */
-.da-toolbar { */
-  margin-right: 0;
-  border-right: 1px solid var(--background-modifier-accent);
-  padding-right: 7px;
-}
-.da-container.da-themed .da-children .da-iconWrapper:first-child .da-icon, .da-container.da-title .da-children .da-iconWrapper:first-child .da-icon {
-    -webkit-app-region: drag;
-}
-.btn-close { -webkit-app-region: no-drag; } /* Fix for the last bit causing the close settings button to be a drag-region */
-
-/* Fix for the search bar becoming uninteractable */
-.da-searchBarComponent {
-    -webkit-app-region: no-drag;
-}
-
-/* Fix for the server list becoming uninteractable, and moves it down */
-.da-guilds .da-scroller, .guilds-1SWlCJ .da-scroller,
-/* Fallback */
-.da-guilds .da-scrollerWrap .da-scroller, .guilds-1SWlCJ .da-scrollerWrap .da-scroller {
-    padding-top: 60px;
-    -webkit-app-region: no-drag;
-}
-.da-unreadMentionsIndicatorTop {
+.unreadMentionsIndicatorTop-2-tcdU {
   top: 48px;
 }
 
 /*Adds a small draggable area on top of server list and moves icons down to avoid overlap*/
-.da-wordmarkWindows {
+.wordmarkWindows-1v0lYD {
     display: none;
 }
 /* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
@@ -94,7 +71,7 @@
  }
 
 /* Removes the rounded edge meant to smooth out the old titlebar */
-.platform-win .da-sidebar { border-radius: 0; }
+.platform-win .sidebar-2K8pFh { border-radius: 0;}
 
 .da-notice {
   position: absolute;
@@ -109,26 +86,12 @@
 }
 
 /* Area around server name or DM search bar */
-.da-sidebar .da-container .da-container.da-clickable, .da-sidebar .da-searchBar{
+.container-1taM1r, .searchBar-6Kv8R2{
   -webkit-app-region: drag;
-}
-/* Boost and expand icons */
-.da-sidebar .da-button {
-  -webkit-app-region: no-drag;
-}
-.da-sidebar .da-clickable.da-selected {
-  -webkit-app-region: no-drag !important;
-}
-.da-guildIconContainer {
-  -webkit-app-region: no-drag;
-}
-/* Close settings button */
-.da-closeButton {
-  -webkit-app-region: no-drag;
 }
 
 /* Settings page custom titlebar thingy */
-.da-standardSidebarView::before{
+.standardSidebarView-3F1I7i::before, .root-3R2ngo::before{
 	-webkit-app-region: drag;
 	display: block;
 	position: absolute;
@@ -139,7 +102,7 @@
 	right: calc(var(--custom-win-button-width) * 3);
 	top: 0;
 }
-.da-standardSidebarView::after{
+.standardSidebarView-3F1I7i::after, .root-3R2ngo::after{
 	display: block;
 	color: white;
 
@@ -158,30 +121,31 @@
 	box-shadow:var(--elevation-low);
 	background:var(--background-primary);
 }
-.da-standardSidebarView{
-	-webkit-app-region: no-drag;
-	padding-top: var(--custom-win-button-height);
+/* Boost page custom titlebar thingy */
+
+.root-3R2ngo::after{
+	content: 'Discord';
+}
+
+.root-3R2ngo, .standardSidebarView-3F1I7i{
+  padding-top: 48px;
 }
 
 /* covid video-chat ui update */
-.da-topControls {
-  -webkit-app-region: drag;
-  transform: none !important;
+.topControls-KKImPZ {
   opacity: 1 !important;
-  width: calc(100% - 120px);
-  margin-left: -20px;
-  padding-left: 20px;
-  padding-right: 16px;
-}
-.da-topControls .da-icon{
-  -webkit-app-region: drag;
+  width: calc(100% - 137px);
+  /* padding-right: 132px; */
+  transform: none !important;
+  /* padding-right: 16px; */
 }
 
-.da-topControls::after {
-  position: absolute;
-  right: 128px;
+.toolbar-1t6TWx::after {
+  position: fixed;
+  right: 138px;
   top: 12px;
   height: 24px;
   content: '';
+  /* background-color: red; */
   border-right: 1px solid #FFFFFF22;
 }
