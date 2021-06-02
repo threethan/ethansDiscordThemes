@@ -1,4 +1,4 @@
-/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check the source. Requires BetterDiscord's Normalized classes function to be enabled.","author":"Ethan","version":"2.2.1", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Scaling","description":" Improves Discord's scaling to small window sizes by making elements hide unless moused over. To remove Discord's default window size limit check google.","author":"Ethan","version":"3.0", "website":"https://github.com/threethan/ethansDiscordThemes/", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Autohide the member list on servers when the window isn't very wide*/
 @media only screen and (max-width: 1100px) {
@@ -24,25 +24,25 @@
 			width: 240px;
 	} */
 	/* Hide search bar */
-	.da-toolbar .da-searchBar {
+	.searchBar-3dMhjb {
 		width: 150px;
 	}
-	.da-toolbar .da-searchBar:not(:focus-within) {
+	.searchBar-3dMhjb:not(:focus-within) {
 		background: none;
 		width: 20px;
 	}
-	.da-toolbar .da-searchBar:not(:focus-within) svg {
+	.searchBar-3dMhjb:not(:focus-within) svg {
 		transform: scale(1.5) !important;
 		color: var(--interactive-normal);
 	}
-	.da-toolbar.da-searchBar svg:hover {
+	.searchBar-3dMhjb:hover svg {
 		color: var(--interactive-hover);
 	}
 }
 
 /*Autohide the channel/DM recipient panel when the window is somewhat narrow*/
 @media only screen and (max-width: 850px) {
-	.da-content .da-sidebar {
+	.sidebar-2K8pFh {
 		/* width: 15px; */
 		margin-right: -225px;
 		transition: margin-right 0.2s;
@@ -51,67 +51,70 @@
 		transition-timing-function: ease-out;
 		box-shadow:  5px 10px #888888 inner;
 	}
-	.da-content .da-sidebar .da-searchBar, .da-content .da-sidebar .da-header{
+	.searchBar-3dMhjb, .container-1taM1r, .header-2V-4Sw{
 		-webkit-app-region: no-drag;
 	}
 
-	.da-content .da-sidebar 						div:not(:first-child), .da-content .da-sidebar .da-searchBarComponent {
+	.panels-j1Uci_{
 		opacity: 1;
 		transition: opacity 0.2s;
 	}
-	.da-content .da-sidebar:not(:hover) div:not(:first-child), .da-content .da-sidebar:not(:hover) .da-searchBarComponent{
+	.sidebar-2K8pFh:not(:hover) div:not(.searchBar-6Kv8R2):not(.container-1taM1r), .sidebar-2K8pFh:not(:hover) .panels-j1Uci_{
 		opacity: 0;
 	}
-	.da-content .da-sidebar:hover {
+	.sidebar-2K8pFh:hover {
 		margin-right: 0;
 	}
 
 	/* Let the settings page shrink smaller */
-	.da-contentColumn, .contentColumn-2hrIYH, .contentColumn {
+	.contentColumn-2hrIYH {
 		min-width: 200px;
 	}
 	.tools-container { margin-left: -80px; }
 	.esc-text { display: none; }
 	.btn-close { background-color: var(--background-primary); }
-
-	/* Pad the user icon a bit to not peek out */
-	.da-avatarWrapper {
-		padding-left: 8px;
-	}
 }
 
 /*Autohide the server selector when the window is very narrow*/
 @media only screen and (max-width: 700px) {
 	/* Sometimes the section loses the da-guilds class, so the second part is a workaround for that */
-	.da-guilds, .guilds-1SWlCJ {
+	.guilds-1SWlCJ {
 		position: absolute;
 		z-index: 1000; /*100 is NOT enough*/
 		left: -62px;
 		opacity: 0.5;
 		transition: left 0.2s, opacity 0.2s;
 		background: red;
+		height: 100%;
+		border-top-right-radius: 5px;
 	}
-	.da-guilds:not(:hover) .da-unreadMentionsIndicatorTop, .guilds-1SWlCJ:not(:hover) .da-unreadMentionsIndicatorTop,
-	.da-guilds:not(:hover) .da-unreadMentionsIndicatorBottom, .guilds-1SWlCJ:not(:hover) .da-unreadMentionsIndicatorBottom {
+	.guilds-1SWlCJ:not(:hover) .unreadMentionsIndicatorTop-2-tcdU, .guilds-1SWlCJ:not(:hover) .unreadMentionsIndicatorTop-2-tcdU,
+	.guilds-1SWlCJ:not(:hover) .unreadMentionsIndicatorBottom-2mDYbI, .guilds-1SWlCJ:not(:hover) .unreadMentionsIndicatorBottom-2mDYbI {
 		display: none;
 	}
-	.da-guilds:hover,.guilds-1SWlCJ:hover{
+	.guilds-1SWlCJ:hover,.guilds-1SWlCJ:hover{
 		left: 0;
 		opacity: 1;
 		box-shadow: var(--elevation-high);
 	}
-	.da-base {
+	.base-3dtUhz {
 		left:10px;
 	}
-	.da-content .da-sidebar {
+	.sidebar-2K8pFh {
 		margin-right: -230px;
 	}
 
 	/*Compatibility with better title bar theme*/
-	.da-guilds::after, .guilds-1SWlCJ::after {padding-left: 8px !important;-webkit-app-region: no-drag;}
+	.guilds-1SWlCJ::after {
+		/* box-shadow: none; */
+		margin-top: 2px;
+		padding-left: 7px;
+		height: 30px;
+		-webkit-app-region: no-drag;
+	}
 
 		/*Autohide toolbar*/
-		.da-title.da-container .da-toolbar {
+		.toolbar-1t6TWx {
 			position: absolute;
 			right: 2px;
 			background: var(--background-secondary);
@@ -127,15 +130,15 @@
 			max-width: 400px;
 			overflow: hidden;
 		}
-		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within) {
+		.toolbar-1t6TWx:not(:hover):not(:focus-within) {
 			max-width: 30px;
 			height: 30px;
 		}
-		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within) div {
+		.toolbar-1t6TWx:not(:hover):not(:focus-within) div {
 			opacity: 0;
 			transition: opacity 0.5s;
 		}
-		.da-title.da-container .da-toolbar:not(:hover):not(:focus-within)::after {
+		.toolbar-1t6TWx:not(:hover):not(:focus-within)::after {
 			content: '';
 			display: block;
 			width: 8px; height: 8px;
@@ -144,5 +147,8 @@
 			border: solid var(--interactive-normal);
 			border-width: 0 0 2px 2px;
 			transform: rotate(45deg);
+		}
+		.toolbar-1t6TWx::after {
+			display: none;
 		}
 }

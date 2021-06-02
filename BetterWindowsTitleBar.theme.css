@@ -1,4 +1,4 @@
-/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats.","author":"Ethan","version":"2.0.0", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
+/*//META{"name":"Better Titlebar (Windows)","description":" Removes the seperate title bar and moves window controls into the title bar for chats.","author":"Ethan","version":"2.1.0", "website":"https://github.com/threethan/ethansDiscordThemes", "source":"https://github.com/threethan/ethansDiscordThemes"}*//**/
 
 /*Variables*/
 :root {
@@ -35,17 +35,19 @@
 	height: var(--custom-win-button-height);
 	-webkit-app-region: no-drag;
 }
-/* Make headers draggable */
-.title-3qD0b-, .da-headerBar, .da-nicknames{
-    /* -webkit-app-region: drag; */
+/* chat header */
+.title-3qD0b- {
+    -webkit-app-region: drag;
+    height: 44px;
+    padding-bottom: 4px;
 }
 .themed-ANHk51, .da-container.da-title {
   -webkit-app-region: drag;
   max-width: calc(100% - var(--custom-win-button-width) * 3);
   padding-right: 3px;
-  height: 40px;
+  /* height: 40px;
   margin-top: 4px;
-  padding-bottom: 8px;
+  padding-bottom: 8px; */
 }
 
 themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFilter {
@@ -120,15 +122,22 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
   height: 40px;
   padding-bottom: 4px;
 }
-.container-1taM1r::after, .searchBar-6Kv8R2::after {
+.header-2V-4Sw {
+  height: 44px;
+  padding-bottom: 4px;
+}
+.container-1taM1r::after, .searchBar-6Kv8R2::after, .header-2V-4Sw::after{
   content: '';
   position: fixed;
-  height: 99px;
-  width: 300px;
+  height: 4px;
+  width: 240px;
   background: var(--background-secondary);
-  margin-top: -42px;
+  margin-top: -22px;
   margin-left: -10px;
-  z-index: -1;
+  z-index: -100;
+}
+.header-2V-4Sw::after {
+  margin-left: -16px;
 }
 
 .themed-ANHk51::after {
@@ -163,9 +172,9 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
 	color: white;
 
 	padding-left: 25px;
-	font-size: 19pt;
-	font-weight: 500;
-	line-height: var(--custom-win-button-height);
+	font-size: 20pt;
+	font-weight: 700;
+	line-height: 41px;
 	text-align: center;
 	content: 'Discord Settings';
 	position: absolute;
@@ -175,7 +184,8 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
 	right: 0;
 	top: 0;
 	box-shadow:var(--elevation-low);
-	background:var(--background-primary);
+	background:var(--background-tertiary);
+  height: 46px;
 }
 /* Boost page custom titlebar thingy */
 
@@ -184,7 +194,7 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
 }
 
 .root-3R2ngo, .standardSidebarView-3F1I7i{
-  padding-top: 48px;
+  padding-top: 44px;
 }
 
 /* covid video-chat ui update */
@@ -204,4 +214,9 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
   content: '';
   /* background-color: red; */
   border-right: 1px solid #FFFFFF22;
+}
+
+/*Exand chat to top bit, fixes vid thingy*/
+.chat-3bRxxu {
+  /* margin-top: -4px; */
 }
