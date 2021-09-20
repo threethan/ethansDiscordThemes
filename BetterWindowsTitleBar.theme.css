@@ -169,7 +169,7 @@ themed-ANHk51 span[role=button], .themed-ANHk51 div[role=button], .da-libraryFil
 }
 .standardSidebarView-3F1I7i::after, .root-3R2ngo::after{
 	display: block;
-	color: white;
+	color: var(--header-primary);
 
 	padding-left: 25px;
 	font-size: 20pt;
